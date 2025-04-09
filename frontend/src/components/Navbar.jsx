@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaHeart, FaMoon, FaSun } from "react-icons/fa"; // Import heart, moon, and sun icons from react-icons
+import { FaHeart } from "react-icons/fa"; // Import heart icon from react-icons
 
 const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
   return (
@@ -34,17 +34,16 @@ const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
           onClick={toggleDarkMode}
           className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white"
         >
-          {darkMode ? (
-            <FaSun className="text-lg" /> // Sun icon for light mode
-          ) : (
-            <FaMoon className="text-lg" /> // Moon icon for dark mode
-          )}
+          {darkMode ? "Light Mode" : "Dark Mode"}
         </button>
       </div>
-      <button onClick={toggleDarkMode} className="text-gray-900 dark:text-white">
-          
+
+      {/* Hamburger menu for mobile */}
+      <div className="md:hidden flex items-center gap-2">
+        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-white">
+          <i className="fas fa-bars"></i> {/* Add a hamburger icon for mobile */}
         </button>
-   
+      </div>
     </nav>
   );
 };
