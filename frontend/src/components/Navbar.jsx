@@ -32,7 +32,7 @@ const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
         {/* Dark Mode Button with icons */}
         <button
           onClick={toggleDarkMode}
-          className="px-4 py-2 rounded  dark:bg-gray-600 text-gray-800 dark:text-white"
+          className="px-4 py-2 rounded  dark:bg-gray-800 text-gray-800 dark:text-white"
         >
           {darkMode ? (
             <FaSun className="text-lg" /> // Sun icon for light mode
