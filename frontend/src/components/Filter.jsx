@@ -24,11 +24,11 @@ const Filter = ({
 
   return (
     <div className="flex flex-col gap-6">
-      <h2 className="text-xl font-semibold text-gray-700">Filter By</h2>
+      <h2 className="text-xl font-semibold text-gray-700 dark:text-white">Filter By</h2>
 
       {/* Brand Filter */}
       <div className="flex flex-col gap-1">
-        <label className="text-gray-600 text-sm">Brand</label>
+        <label className="text-gray-600 dark:text-white text-sm">Brand</label>
         <select
           value={brand}
           onChange={(e) => setBrand(e.target.value)}
@@ -45,7 +45,7 @@ const Filter = ({
 
       {/* Fuel Type */}
       <div className="flex flex-col gap-1">
-        <label className="text-gray-600 text-sm">Fuel Type</label>
+        <label className="text-gray-600 dark:text-white text-sm">Fuel Type</label>
         <select
           value={fuelType}
           onChange={(e) => setFuelType(e.target.value)}
@@ -62,7 +62,7 @@ const Filter = ({
 
       {/* Price Range */}
       <div className="flex flex-col gap-1">
-        <label className="text-gray-600 text-sm">Price Range</label>
+        <label className="text-gray-600 dark:text-white text-sm">Price Range</label>
         <select
           value={getCurrentPriceRangeValue()}
           onChange={(e) => setPriceRange(e.target.value)}
@@ -78,7 +78,7 @@ const Filter = ({
 
       {/* Sort Order */}
       <div className="flex flex-col gap-1">
-        <label className="text-gray-600 text-sm">Sort By</label>
+        <label className="text-gray-600 dark:text-white text-sm">Sort By</label>
         <select
           value={sortOrder}
           onChange={(e) => setSortOrder(e.target.value)}
