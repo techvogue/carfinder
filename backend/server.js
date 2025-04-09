@@ -19,11 +19,10 @@ connectDB();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://carfinder-frontend.vercel.app"], // Local and deployed frontend URLs
+    origin: process.env.FRONTEND_URL, // your Vite frontend URL
     credentials: true,
   })
 );
-
 app.use(express.json());
 app.use('/', carRoutes);
 
