@@ -44,11 +44,11 @@ const Home = ({
       {loading ? (
         <Loader />
       ) : (
-        <div className="flex gap-4 ">
+        <div className="flex flex-col md:flex-row gap-4">
           
-          {/* Left Filters */}
-          <div className="w-full md:w-1/5 h-[100vh] border-r border-gray-300 dark:border-gray-600">
-            <div className="mt-10 p-4 bg-white  shadow-md sticky  h-[80vh] dark:bg-gray-800 dark:text-white">
+          {/* Left Filters - Adjusted for smaller screens */}
+          <div className="w-full md:w-1/5 h-[100vh] border-b md:border-r border-gray-300 dark:border-gray-600">
+            <div className="mt-10 p-4 bg-white shadow-md sticky top-0 h-auto md:h-[80vh] dark:bg-gray-800 dark:text-white">
               <Filter
                 brand={brand}
                 setBrand={setBrand}
@@ -64,7 +64,7 @@ const Home = ({
             </div>
           </div>
 
-          {/* Right Content */}
+          {/* Right Content - Adjusted for smaller screens */}
           <div className="mt-10 px-3 w-full md:w-3/4 flex flex-col">
             
             <div className="mb-4">
@@ -79,7 +79,7 @@ const Home = ({
                 No Products Found 😕
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
                 {filterCars
                   .slice(
                     (currentPage - 1) * carsPerPage,
