@@ -42,7 +42,7 @@ const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
         </button>
       </div>
       <button onClick={toggleDarkMode} className="text-gray-900 dark:text-white">
-          <i className="fas fa-bars"></i> {/* Add a hamburger icon for mobile */}
+          
         </button>
    
     </nav>
