@@ -44,11 +44,11 @@ const Home = ({
       {loading ? (
         <Loader />
       ) : (
-        <div className="flex flex-col md:flex-row gap-4">
+        <div className="flex gap-4 ">
           
           {/* Left Filters */}
-          <div className="w-full md:w-1/4 h-auto md:h-[100vh] border-b md:border-r border-gray-300 dark:border-gray-600">
-            <div className="mt-8 p-4 bg-white shadow-md sticky top-4 h-auto md:h-[80vh] dark:bg-gray-800 dark:text-white">
+          <div className="w-full md:w-1/5 h-[100vh] border-r border-gray-300 dark:border-gray-600">
+            <div className="mt-10 p-4 bg-white  shadow-md sticky  h-[80vh] dark:bg-gray-800 dark:text-white">
               <Filter
                 brand={brand}
                 setBrand={setBrand}

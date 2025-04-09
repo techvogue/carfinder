@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaHeart } from "react-icons/fa"; // Import heart icon from react-icons
 
 const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
   return (
@@ -7,23 +8,40 @@ const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
       <div className="font-bold text-xl text-gray-900 dark:text-white">
         Car Store
       </div>
-      <div className="flex gap-4">
+
+      {/* Mobile and Desktop Layout */}
+      <div className="flex gap-4 md:gap-6 items-center text-sm md:text-base">
         <Link
           to="/"
           className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-300"
         >
           Home
         </Link>
+
+        {/* Heart Icon for Wishlist */}
         <Link
           to="/wishlist"
-          className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-300"
+          className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-300 flex items-center gap-1"
         >
-          Wishlist {wishlistCount > 0 && <span>({wishlistCount})</span>}
+          <FaHeart className="text-lg" /> {/* Heart icon */}
+          {wishlistCount > 0 && (
+            <span className="text-xs md:text-sm">({wishlistCount})</span> // Wishlist count in small text
+          )}
         </Link>
+
+        {/* Dark Mode Button */}
         <button
           onClick={toggleDarkMode}
-          className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white">
+          className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white"
+        >
           {darkMode ? "Light Mode" : "Dark Mode"}
+        </button>
+      </div>
+
+      {/* Hamburger menu for mobile */}
+      <div className="md:hidden flex items-center gap-2">
+        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-white">
+          <i className="fas fa-bars"></i> {/* Add a hamburger icon for mobile */}
         </button>
       </div>
     </nav>
