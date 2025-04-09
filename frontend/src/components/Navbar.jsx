@@ -41,13 +41,10 @@ const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
           )}
         </button>
       </div>
-
-      {/* Hamburger menu for mobile */}
-      <div className="md:hidden flex items-center gap-2">
-        <button onClick={toggleDarkMode} className="text-gray-900 dark:text-white">
+      <button onClick={toggleDarkMode} className="text-gray-900 dark:text-white">
           <i className="fas fa-bars"></i> {/* Add a hamburger icon for mobile */}
         </button>
-      </div>
+   
     </nav>
   );
 };
