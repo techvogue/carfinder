@@ -1,6 +1,6 @@
 import React from "react";
+import { FaHeart, FaMoon, FaSun } from "react-icons/fa"; // Import heart, moon, and sun icons from react-icons
 import { Link } from "react-router-dom";
-import { FaHeart } from "react-icons/fa"; // Import heart icon from react-icons
 
 const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
   return (
@@ -29,12 +29,16 @@ const Navbar = ({ wishlistCount, toggleDarkMode, darkMode }) => {
           )}
         </Link>
 
-        {/* Dark Mode Button */}
+        {/* Dark Mode Button with icons */}
         <button
           onClick={toggleDarkMode}
           className="px-4 py-2 rounded bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-white"
         >
-          {darkMode ? "Light Mode" : "Dark Mode"}
+          {darkMode ? (
+            <FaSun className="text-lg" /> // Sun icon for light mode
+          ) : (
+            <FaMoon className="text-lg" /> // Moon icon for dark mode
+          )}
         </button>
       </div>
 
