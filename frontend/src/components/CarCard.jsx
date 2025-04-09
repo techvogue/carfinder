@@ -28,21 +28,22 @@ const CarCard = ({ car, toggleWishlist, wishlist }) => {
 
       {/* Wishlist Button */}
       <button
-        onClick={() => toggleWishlist(carId)}
-        className={`relative h-[50px] w-50 overflow-hidden border ${
-          isInWishlist
-            ? "border-red-600 text-red-600 dark:border-red-600 dark:text-red-600"
-            : "border-gray-800 text-gray-800 dark:border-gray-700 dark:text-gray-300"
-        } bg-white shadow-2xl transition-all before:absolute before:left-0 before:right-0 before:top-0 before:h-0 before:w-full ${
-          isInWishlist ? "before:bg-red-600" : "before:bg-gray-800"
-        } before:duration-500 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0 after:w-full ${
-          isInWishlist ? "after:bg-red-600" : "after:bg-gray-800"
-        } after:duration-500 hover:text-white hover:shadow-lg hover:before:h-2/4 hover:after:h-2/4 rounded-lg font-medium px-.5 transition-all duration-300 cursor-pointer`}
-      >
-        <span className="relative z-10">
-          {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
-        </span>
-      </button>
+  onClick={() => toggleWishlist(carId)}
+  className={`relative h-[50px] w-50 overflow-hidden border ${
+    isInWishlist
+      ? "border-red-600 text-red-600 dark:border-red-600 dark:text-red-600"
+      : "border-green-600 text-black bg-green-500 dark:border-green-600 dark:text-black dark:bg-green-500"
+  } shadow-2xl transition-all before:absolute before:left-0 before:right-0 before:top-0 before:h-0 before:w-full ${
+    isInWishlist ? "before:bg-red-600" : "before:bg-green-600"
+  } before:duration-500 after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0 after:w-full ${
+    isInWishlist ? "after:bg-red-600" : "after:bg-green-600"
+  } after:duration-500 hover:text-white hover:shadow-lg hover:before:h-2/4 hover:after:h-2/4 rounded-lg font-medium px-.5 transition-all duration-300 cursor-pointer`}
+>
+  <span className="relative z-10">
+    {isInWishlist ? "Remove from Wishlist" : "Add to Wishlist"}
+  </span>
+</button>
+
     </div>
   );
 };
