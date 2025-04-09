@@ -24,10 +24,10 @@ const Pagination = ({
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className={`px-4 py-2 border rounded ${
+            className={`px-4 py-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white ${
               currentPage === 1
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-gray-200"
+                ? "bg-gray-300 cursor-not-allowed dark:bg-gray-600"
+                : "bg-gray-200 dark:bg-gray-800"
             }`}
           >
             Prev
@@ -37,10 +37,10 @@ const Pagination = ({
             <button
               key={number}
               onClick={() => setCurrentPage(number)}
-              className={`px-4 py-2 border rounded ${
+              className={`px-4 py-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white ${
                 currentPage === number
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200"
+                  ? "bg-blue-500 text-white dark:bg-blue-600"
+                  : "bg-gray-200 dark:bg-gray-800"
               }`}
             >
               {number}
@@ -50,10 +50,10 @@ const Pagination = ({
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className={`px-4 py-2 border rounded ${
+            className={`px-4 py-2 border rounded dark:bg-gray-700 dark:border-gray-600 dark:text-white ${
               currentPage === totalPages
-                ? "bg-gray-300 cursor-not-allowed"
-                : "bg-gray-200"
+                ? "bg-gray-300 cursor-not-allowed dark:bg-gray-600"
+                : "bg-gray-200 dark:bg-gray-800"
             }`}
           >
             Next
