@@ -40,15 +40,15 @@ const Home = ({
   }, [searchQuery]);
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 dark:bg-gray-900 dark:text-white">
       {loading ? (
         <Loader />
       ) : (
-        <div className="flex gap-4 min-h-[calc(100vh-100px)]">
+        <div className="flex gap-4 ">
           
           {/* Left Filters */}
-          <div className="w-full md:w-1/5 h-[100vh] border-r border-gray-300">
-            <div className="mt-10 p-4 bg-white rounded-xl shadow-md sticky top-4 h-[100vh]">
+          <div className="w-full md:w-1/5 h-[100vh] border-r border-gray-300 dark:border-gray-600">
+            <div className="mt-8 p-4 bg-white  shadow-md sticky  h-[80vh] dark:bg-gray-800 dark:text-white">
               <Filter
                 brand={brand}
                 setBrand={setBrand}
@@ -75,7 +75,7 @@ const Home = ({
             </div>
 
             {filterCars.length < 1 ? (
-              <div className="text-center text-2xl font-semibold mt-10">
+              <div className="text-center text-2xl font-semibold mt-10 dark:text-white">
                 No Products Found 😕
               </div>
             ) : (

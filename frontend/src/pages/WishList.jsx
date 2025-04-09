@@ -2,18 +2,18 @@ import React from "react";
 
 const Wishlist = ({ cars, wishlist, toggleWishlist }) => {
   return (
-    <div className="p-8 mt-12 max-w-7xl mx-auto animate-fadeIn">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-3 animate-slideDown">
+    <div className="h-[100vh] p-8 mt-12 max-w-7xl mx-auto animate-fadeIn dark:bg-gray-900 dark:text-white">
+      <h1 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-3 animate-slideDown dark:text-white dark:border-gray-600">
         My Wishlist
       </h1>
 
       {cars.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-20 bg-gray-50 rounded-lg shadow-sm transition-all duration-500 animate-slideUp">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400 mb-4 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div className="flex flex-col items-center justify-center py-20 bg-gray-50 rounded-lg shadow-sm transition-all duration-500 animate-slideUp dark:bg-gray-800 dark:text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-gray-400 mb-4 animate-pulse dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
-          <p className="text-xl text-gray-600 animate-fadeIn">Your wishlist is empty</p>
-          <p className="text-gray-500 mt-2 animate-fadeIn delay-150">Add cars you love to your wishlist to save them for later</p>
+          <p className="text-xl text-gray-600 animate-fadeIn dark:text-white">Your wishlist is empty</p>
+          <p className="text-gray-500 mt-2 animate-fadeIn delay-150 dark:text-gray-300">Add cars you love to your wishlist to save them for later</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -23,7 +23,7 @@ const Wishlist = ({ cars, wishlist, toggleWishlist }) => {
             return (
               <div
                 key={carId}
-                className="border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-white animate-fadeIn"
+                className="border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 bg-white animate-fadeIn dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="relative overflow-hidden">
@@ -40,15 +40,15 @@ const Wishlist = ({ cars, wishlist, toggleWishlist }) => {
                 </div>
 
                 <div className="p-5">
-                  <h2 className="font-bold text-xl mb-2 text-gray-800 transition-colors duration-300 hover:text-red-500">
+                  <h2 className="font-bold text-xl mb-2 text-gray-800 transition-colors duration-300 hover:text-red-500 dark:text-white">
                     {car.name}
                   </h2>
 
                   <div className="flex flex-col gap-1 mb-4">
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300">
                       <span className="font-medium">Brand:</span> {car.brand}
                     </p>
-                    <p className="text-gray-800 text-lg font-bold">
+                    <p className="text-gray-800 text-lg font-bold dark:text-gray-100">
                       ${car.price?.toLocaleString ? car.price.toLocaleString() : car.price}
                     </p>
                   </div>

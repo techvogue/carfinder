@@ -17,6 +17,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const carsPerPage = 10;
   const [wishlist, setWishlist] = useState([]);
+  const [darkMode, setDarkMode] = useState(false);
 
   // Load wishlist from localStorage on component mount
   useEffect(() => {
@@ -32,34 +33,40 @@ const App = () => {
     getCars();
   }, []);
 
+  useEffect(() => {
+    // Toggle dark mode by adding/removing 'dark' class on <html> element
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
 
-const toggleWishlist = (carId) => {
-  setWishlist((prevWishlist) => {
-    // Check if the carId is already in the wishlist
-    const isInWishlist = prevWishlist.includes(carId);
-    
-    // Add the carId if it's not in the wishlist, or remove it if it's already there
-    const newWishlist = isInWishlist
-      ? prevWishlist.filter(id => id !== carId) 
-      : [...prevWishlist, carId]; 
-    
-    // Save the updated wishlist to localStorage
-    localStorage.setItem("wishlist", JSON.stringify(newWishlist));
-    
-    return newWishlist;
-  });
-};
-  
+  const toggleWishlist = (carId) => {
+    setWishlist((prevWishlist) => {
+      // Check if the carId is already in the wishlist
+      const isInWishlist = prevWishlist.includes(carId);
 
-  
+      // Add the carId if it's not in the wishlist, or remove it if it's already there
+      const newWishlist = isInWishlist
+        ? prevWishlist.filter(id => id !== carId)
+        : [...prevWishlist, carId];
+
+      // Save the updated wishlist to localStorage
+      localStorage.setItem("wishlist", JSON.stringify(newWishlist));
+
+      return newWishlist;
+    });
+  };
+
   const handlePriceRangeChange = (rangeString) => {
     if (!rangeString) {
-      setPriceRange([0, 1000000]); 
+      setPriceRange([0, 1000000]);
       return;
     }
-    
+
     const [min, max] = rangeString.split('-').map(Number);
-    setPriceRange([min, max || 1000000]); 
+    setPriceRange([min, max || 1000000]);
   };
 
   const uniqueBrands = [...new Set(cars.map((car) => car.brand))];
@@ -80,15 +87,19 @@ const toggleWishlist = (carId) => {
       sortOrder === "asc" ? a.price - b.price : b.price - a.price
     );
 
- // Get wishlist cars
-const wishlistCars = cars.filter(car => {
-  const carId = car._id.$oid || car._id;
-  return wishlist.includes(carId);
-});
+  // Get wishlist cars
+  const wishlistCars = cars.filter(car => {
+    const carId = car._id.$oid || car._id;
+    return wishlist.includes(carId);
+  });
 
   return (
     <Router>
-      <Navbar wishlistCount={wishlist.length} />
+      <Navbar 
+        wishlistCount={wishlist.length} 
+        toggleDarkMode={() => setDarkMode(prev => !prev)} 
+        darkMode={darkMode}
+      />
       <Routes>
         <Route
           path="/"
